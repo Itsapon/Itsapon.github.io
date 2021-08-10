@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>
+	The End
+	</title>
+	<link rel="stylesheet" type="text/css" href="/home/robin/Documents/Projects/Coding stuff/Html studies/Madelief/Style/eindopdracht.css">
+</head>
+
+<body>
+<img src="/home/robin/Documents/Projects/Coding stuff/Html studies/Madelief/Images/madelief.jpeg" title="Madelief"/>
+<br/>
+<h1>
+	Kwekerij Bellis Perennis
+</h1>
+<p>
+	Straat en huisnummer <br/>
+	Postcode en plaats<br/>
+	<br/>
+	<b>Telefoon: </b> 06123456789<br/>
+	<b>Email: </b> Email@email.com<br/>
+	<b>Kvk</b> 3548678<br/>
+</p>
+<hr>
+<h1>Factuur</h1>
+<table>
+	<thead>
+		<tr>
+			<td style="width:75px">Aantal</td>
+			<td style="width:175px">Omschrijving</td>
+			<td style="width:75px">Prijs per stuk</td>
+			<td style="width:75px">Prijs totaal</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td id="td_11">5</td>
+			<td>Madelief</td>
+			<td id="td_13"> 0,29</td>
+			<td id="td_14"></td>
+		</tr>
+		<tr>
+			<td id="td_21">10</td>
+			<td>Margriet</td>
+			<td id="td_23">0,49</td>
+			<td id="td_24"></td>
+		</tr>
+		<tr>
+			<td id="td_31">5</td>
+			<td>Tulp</td>
+			<td id="td_33">1,59</td>
+			<td id="td_34"></td>
+		</tr>
+		<tr>
+			<td colspan="2">Subtotaal</td>
+			<td></td>
+			<td id="td_44"></td>
+		</tr>
+		<tr>
+			<td colspan="2">BTW</td>
+			<td></td>
+			<td id="td_54"></td>
+		</tr>
+		<tr>
+			<td colspan="2">Totaal</td>
+			<td></td>
+			<td id="td_64"></td>
+		</tr>
+		
+	</tbody>
+</table>
+<br/>
+<p>
+<input type="button" value="Optellen" onclick="Optellen();"/>
+</p>
+
+<script type="text/javascript">
+	
+function Optellen(){
+	var regeltotaal;
+	var subtotaal;
+	var btw;
+	var totaal;
+	
+
+	regeltotaal=document.getElementById('td_11').innerHTML.replace(",",".")*document.getElementById('td_13').innerHTML.replace(",",".");
+	document.getElementById('td_14').innerHTML=regeltotaal.toFixed(2).replace(".",",");
+	subtotaal=regeltotaal;
+	
+	
+	regeltotaal=document.getElementById('td_21').innerHTML.replace(",",".")*document.getElementById('td_23').innerHTML.replace(",",".");
+	document.getElementById('td_24').innerHTML=regeltotaal.toFixed(2).replace(".",",");
+	subtotaal+=regeltotaal;
+	
+	
+	regeltotaal=document.getElementById('td_31').innerHTML.replace(",",".")*document.getElementById('td_33').innerHTML.replace(",",".");
+	document.getElementById('td_34').innerHTML=regeltotaal.toFixed(2).replace(".",",");
+	
+	subtotaal+=regeltotaal
+	document.getElementById('td_44').innerHTML=subtotaal.toFixed(2).replace(".",",");
+	btw=(subtotaal/100)*21;
+	document.getElementById('td_54').innerHTML=btw.toFixed(2).replace(".",",");
+	totaal=subtotaal+btw
+	document.getElementById('td_64').innerHTML=totaal.toFixed(2).replace(".",",");
+	}	
+
+</script>
+</body>
+</html>
